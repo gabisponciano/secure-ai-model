@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+*.log
+
+# Environments
+.env
+.venv/
+venv/
+env/
+ENV/
+
+# PyInstaller build
+build/
+dist/
+*.spec
+
+# PyArmor
+pyarmor_output/
+pyarmor_runtime_*/
+protected/__pycache__/
+protected/*.pyc
+
+# Model files
+model/*.pt
+model/*.onnx
+model/*.pth
+model/*.enc
+
+# Secret keys
+key/
+*.key
+*.pem
+*.crt
+*.der
+*.txt
+
+# Jupyter
+.ipynb_checkpoints
+
+# VS Code / IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini

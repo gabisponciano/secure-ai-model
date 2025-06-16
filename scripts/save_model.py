@@ -1,22 +1,11 @@
-# scripts/save_model.py
+from ultralytics import YOLO
 import torch
-import torch.nn as nn
+import os
 
-class SimpleModel(nn.Module):
-    def __init__(self):
-        super().__init__()
-        self.fc = nn.Sequential(
-            nn.Linear(28*28, 128),
-            nn.ReLU(),
-            nn.Linear(128, 10)
-        )
+# Carrega o modelo YOLOv8n (nano) — mais leve, rápido para testes
+model = YOLO("yolov8n.pt")  # Você pode testar também "yolov8s.pt" ou outro
 
-    def forward(self, x):
-        return self.fc(x)
-
-# Instantiate and save scripted model
-model = SimpleModel()
-dummy_input = torch.rand(1, 28*28)
-scripted = torch.jit.trace(model, dummy_input)
-scripted.save("../model/scripted_model.pt")
-print("Scripted model saved.")
+# Salva o modelo em formato Torch
+os.makedirs("model", exist_ok=True)
+torch.save(model.model, "model/model.pth")
+print("Modelo salvo em model/model.pth")

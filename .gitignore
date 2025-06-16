@@ -25,19 +25,20 @@ pyarmor_runtime_*/
 protected/__pycache__/
 protected/*.pyc
 
-# Model files
+# Model files - ignora os arquivos mas não a pasta
 model/*.pt
 model/*.onnx
 model/*.pth
 model/*.enc
+!model/.gitkeep
 
-# Secret keys
-key/
-*.key
-*.pem
-*.crt
-*.der
-*.txt
+# Secret keys - ignora os arquivos mas não a pasta
+key/*.key
+key/*.pem
+key/*.crt
+key/*.der
+key/*.txt
+!key/.gitkeep
 
 # Jupyter
 .ipynb_checkpoints

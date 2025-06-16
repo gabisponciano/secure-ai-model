@@ -1,20 +1,18 @@
-# scripts/encrypt_model.py
 from cryptography.fernet import Fernet
 
-# Generate key and save it
-key = Fernet.generate_key()
-with open("../key/secret_key.txt", "wb") as f:
-    f.write(key)
-print("Encryption key saved.")
+def load_key():
+    return open("key/secret.key", "rb").read()
 
-# Encrypt model
-fernet = Fernet(key)
-with open("../model/scripted_model.pt", "rb") as f:
-    model_data = f.read()
+def encrypt_model(model_path: str, enc_path: str, key: bytes):
+    with open(model_path, "rb") as f:
+        data = f.read()
+    fernet = Fernet(key)
+    encrypted = fernet.encrypt(data)
+    with open(enc_path, "wb") as f:
+        f.write(encrypted)
+    print(f"Modelo '{model_path}' criptografado e salvo em '{enc_path}'")
 
-encrypted = fernet.encrypt(model_data)
+if __name__ == "__main__":
+    key = load_key()
+    encrypt_model("model/model.pth", "model/model.pth.enc", key)
 
-with open("../model/encrypted_model.enc", "wb") as f:
-    f.write(encrypted)
-
-print("Encrypted model saved.")

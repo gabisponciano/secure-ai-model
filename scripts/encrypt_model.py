@@ -10,9 +10,8 @@ def encrypt_model(model_path: str, enc_path: str, key: bytes):
     encrypted = fernet.encrypt(data)
     with open(enc_path, "wb") as f:
         f.write(encrypted)
-    print(f"Modelo '{model_path}' criptografado e salvo em '{enc_path}'")
+    print(f"Model '{model_path}' encrypted and saved to '{enc_path}'")
 
 if __name__ == "__main__":
     key = load_key()
     encrypt_model("model/model.pth", "model/model.pth.enc", key)
-

@@ -25,14 +25,14 @@ pyarmor_runtime_*/
 protected/__pycache__/
 protected/*.pyc
 
-# Model files - ignora os arquivos mas não a pasta
+# Model files
 model/*.pt
 model/*.onnx
 model/*.pth
 model/*.enc
 !model/.gitkeep
 
-# Secret keys - ignora os arquivos mas não a pasta
+# Secret keys
 key/*.key
 key/*.pem
 key/*.crt
@@ -53,3 +53,9 @@ key/*.txt
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Obfuscated Files
+dist_protected/
+!dist_protected/key/.gitkeep
+!dist_protected/model/.gitkeep
+

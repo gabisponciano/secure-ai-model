@@ -59,3 +59,11 @@ dist_protected/
 !dist_protected/key/.gitkeep
 !dist_protected/model/.gitkeep
 
+# Model
+yolov8n.pt
+
+# Results
+results/*
+results_comparison/*
+
+
